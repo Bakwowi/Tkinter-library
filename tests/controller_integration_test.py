@@ -1,5 +1,8 @@
 import unittest
 from unittest.mock import MagicMock, patch
+import sys
+
+sys.path.append(r'C:\Users\Bryan\Desktop\school-documents\2nd-semester-SS-25\projects\programming-2\exercise_5')
 from controller import LibController
 from model import *
 import os

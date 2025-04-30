@@ -2,6 +2,9 @@ import unittest
 from unittest.mock import MagicMock, patch
 import os
 import json
+import sys
+
+sys.path.append(r'C:\Users\Bryan\Desktop\school-documents\2nd-semester-SS-25\projects\programming-2\exercise_5')
 from model import *
 
 

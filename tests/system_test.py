@@ -1,6 +1,10 @@
 import unittest
 import os
 from tkinter import Tk
+
+import sys
+sys.path.append(r'C:\Users\Bryan\Desktop\school-documents\2nd-semester-SS-25\projects\programming-2\exercise_5')
+
 from view import ViewClass
 from controller import LibController
 
