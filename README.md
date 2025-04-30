@@ -57,10 +57,10 @@ tkinter-library/
 - Internet access (for installing libraries and OCR engine)
 
 ## 🙏 Authors & Acknowledgments
-# Project Author
+### Project Author
 - Bakwowi Junior
 
-# Acknowledgments
+### Acknowledgments
 - Thanks to all contributors and libraries used in this project:
 - Python community
 - Open-source libraries: Tkinter, ttkbootstrap, Pillow, pyocr
