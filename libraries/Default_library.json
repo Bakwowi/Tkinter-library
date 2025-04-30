@@ -1,0 +1,82 @@
+[
+    {
+        "title": "1984",
+        "author": "George Orwell",
+        "year": 1949,
+        "genre": "Dystopian",
+        "status": "Checked Out",
+        "date_added": "2023-10-04T12:00:00"
+    },
+    {
+        "title": "Crime and Punishment",
+        "author": "Fyodor Dostoevsky",
+        "year": 1866,
+        "genre": "Mystery",
+        "status": "Available",
+        "date_added": "2023-10-04T12:00:00"
+    },
+    {
+        "title": "Moby Dick",
+        "author": "Herman Melville",
+        "year": 1851,
+        "genre": "Action & Adventure",
+        "status": "Available",
+        "date_added": "2023-10-04T12:00:00"
+    },
+    {
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "year": 1813,
+        "genre": "Romance",
+        "status": "Checked Out",
+        "date_added": "2023-10-04T12:00:00"
+    },
+    {
+        "title": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "year": 1951,
+        "genre": "Science Fiction",
+        "status": "Available",
+        "date_added": "2023-10-04T12:00:00"
+    },
+    {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "year": 1925,
+        "genre": "Classic",
+        "status": "Available",
+        "date_added": "2023-10-04T12:00:00"
+    },
+    {
+        "title": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "year": 1937,
+        "genre": "Fantasy",
+        "status": "Available",
+        "date_added": "2023-10-04T12:00:00"
+    },
+    {
+        "title": "The Odyssey",
+        "author": "Homer",
+        "year": -800,
+        "genre": "Thriller & Suspense",
+        "status": "Available",
+        "date_added": "2023-10-04T12:00:00"
+    },
+    {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "year": 1960,
+        "genre": "Fiction",
+        "status": "Available",
+        "date_added": "2023-10-04T12:00:00"
+    },
+    {
+        "title": "War and Peace",
+        "author": "Leo Tolstoy",
+        "year": 1869,
+        "genre": "History",
+        "status": "Checked Out",
+        "date_added": "2023-10-04T12:00:00"
+    }
+]
