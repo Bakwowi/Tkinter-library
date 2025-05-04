@@ -1,13 +1,12 @@
-#team_Bakwowi_Ramez_Eneh
+#team_Bakwowi
 #Bakwowi: junior.bakwowi@stud.th-deg.de
-#Ramez: ramez.ayad@stud.th-deg.de
-#Eneh: frank.eneh@stud.th-deg.de
+
 
 
 import ttkbootstrap as tb
 from view import ViewClass
 from controller import LibController
-# import time
+
 
 
 
