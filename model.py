@@ -112,21 +112,7 @@ def search_book(title="", author="", year="", genre="", library_name="Default_li
 
         books_found = []
 
-        # Normalize image text
-        # text_image = text_from_image.lower().strip() if text_from_image != None else ""
-        # use_text = bool(text_image)
-        # print(title, author, year, genre)
         for index, book in enumerate(library, start=1):
-            # Use text from image
-            # print(text_image)
-            # if use_text:
-            #     matches_title = (book["title"].lower() in title.lower() or title.lower() in book["title"]) if title else True
-            #     matches_author = (book["author"].lower() in author.lower() or author.lower() in book["author"]) if author else True
-            #     matches_genre = (book["genre"].lower() in genre.lower() or genre.lower() in book["genre"]) if genre else True
-            #     matches_year = year in str(book["title"]) if year else True
-            #     print(text_image, matches_title, matches_author, matches_year, matches_genre)
-            # if not use_text:
-            # print(title, book["title"])
 
             matches_title = (title.lower() in book["title"].lower() or book["title"] in title.lower()) if title else True
             matches_author = (author.lower() in book["author"].lower() or book["author"] in author.lower()) if author else True

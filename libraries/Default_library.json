@@ -1,5 +1,21 @@
 [
     {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "year": 1925,
+        "genre": "Classic",
+        "status": "Available",
+        "date_added": "2023-10-04T12:00:00"
+    },
+    {
+        "title": "Crime and Punishment",
+        "author": "Fyodor Dostoevsky",
+        "year": 1866,
+        "genre": "Mystery",
+        "status": "Available",
+        "date_added": "2023-10-04T12:00:00"
+    },
+    {
         "title": "1984",
         "author": "George Orwell",
         "year": 1949,
@@ -8,10 +24,10 @@
         "date_added": "2023-10-04T12:00:00"
     },
     {
-        "title": "Crime and Punishment",
-        "author": "Fyodor Dostoevsky",
-        "year": 1866,
-        "genre": "Mystery",
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "year": 1960,
+        "genre": "Fiction",
         "status": "Available",
         "date_added": "2023-10-04T12:00:00"
     },
@@ -24,11 +40,11 @@
         "date_added": "2023-10-04T12:00:00"
     },
     {
-        "title": "Pride and Prejudice",
-        "author": "Jane Austen",
-        "year": 1813,
-        "genre": "Romance",
-        "status": "Checked Out",
+        "title": "The Odyssey",
+        "author": "Homer",
+        "year": -800,
+        "genre": "Thriller & Suspense",
+        "status": "Available",
         "date_added": "2023-10-04T12:00:00"
     },
     {
@@ -36,14 +52,6 @@
         "author": "J.D. Salinger",
         "year": 1951,
         "genre": "Science Fiction",
-        "status": "Available",
-        "date_added": "2023-10-04T12:00:00"
-    },
-    {
-        "title": "The Great Gatsby",
-        "author": "F. Scott Fitzgerald",
-        "year": 1925,
-        "genre": "Classic",
         "status": "Available",
         "date_added": "2023-10-04T12:00:00"
     },
@@ -56,19 +64,11 @@
         "date_added": "2023-10-04T12:00:00"
     },
     {
-        "title": "The Odyssey",
-        "author": "Homer",
-        "year": -800,
-        "genre": "Thriller & Suspense",
-        "status": "Available",
-        "date_added": "2023-10-04T12:00:00"
-    },
-    {
-        "title": "To Kill a Mockingbird",
-        "author": "Harper Lee",
-        "year": 1960,
-        "genre": "Fiction",
-        "status": "Available",
+        "title": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "year": 1813,
+        "genre": "Romance",
+        "status": "Checked Out",
         "date_added": "2023-10-04T12:00:00"
     },
     {

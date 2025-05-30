@@ -9,6 +9,8 @@ try:
     from ttkbootstrap import ttk
     from ttkbootstrap.constants import *
 except ImportError:
+    import ttkbootstrap as tb
+    from ttkbootstrap import ttk
     messagebox.showerror("Module Error", "The 'ttkbootstrap' module is not installed. Please install it using 'pip install ttkbootstrap'")
     exit()
 
@@ -16,12 +18,15 @@ try:
     import pyocr
     import pyocr.builders
 except ImportError:
+    import pyocr
+    import pyocr.builders
     messagebox.showerror("Module Error", "The 'pytesseract' module is not installed. Please install it using 'pip install pyocr'")
     exit()
 
 try:
     from PIL import Image, ImageTk
 except ImportError:
+    from PIL import Image, ImageTk
     messagebox.showerror("Module Error", "The 'pillow' module is not installed. Please install it using 'pip install pillow'")
     exit()
     
@@ -45,11 +50,14 @@ class ViewClass:
         self.root.title("Library Management System")
         self.root.resizable(False, False)
 
+        width = 1380
+        height = 810
         screen_width = self.root.winfo_screenwidth()
         screen_height = self.root.winfo_screenheight()
-        self.x_position = int((screen_width / 2) - ((screen_width - 260) / 2))
-        self.y_position = int((screen_height / 2) - (screen_height / 2))
-        self.root.geometry(f"{screen_width - 260}x{screen_height - 120}+{self.x_position}+{self.y_position}")
+        print(screen_width, screen_height)
+        self.x_position = int((screen_width / 2) - (width / 2))
+        self.y_position = int((screen_height / 2) - ((height + 100) / 2))
+        self.root.geometry(f"{width}x{height}+{self.x_position}+{self.y_position}")
 
         # Configure the grid weights for the root window
         self.root.columnconfigure(0, weight=1)
@@ -236,15 +244,16 @@ class ViewClass:
 
 
         self.right_middle_frame = ttk.Frame(self.right_frame)
-        self.right_middle_frame.grid(column=0, row=1, pady=(10, 0), sticky="nwes")
+        self.right_middle_frame.grid(column=0, row=1, pady=(10, 0), sticky="news")
+        self.right_middle_frame.columnconfigure(1, weight=1)
 
         # Books Listing using a treeview frame
         columns = ("ID", "Title", "Author", "Year", "Genre", "Status")
         self.treeview = ttk.Treeview(self.right_middle_frame, columns=columns, show="headings", height=24, bootstyle="secondary", cursor="hand2")
-        self.treeview.grid(column=0, row=0, sticky="nwes")
+        self.treeview.grid(column=0, row=0, columnspan=2, sticky="news")
         for col in columns:
             self.treeview.heading(col, text=col)
-            self.treeview.column(col, anchor=CENTER, width=129)
+            self.treeview.column(col, anchor="center", width=129)
         self.scrollbar = ttk.Scrollbar(self.right_middle_frame, orient="vertical", bootstyle="info-round", command=self.treeview.yview, cursor="hand2")
         self.scrollbar.grid(column=1, row=0, sticky="nse")
         self.treeview.config(yscrollcommand=self.scrollbar.set)
@@ -270,14 +279,14 @@ class ViewClass:
         self.treeview.tag_configure("hover", background="#9A9A9A")
 
         self.right_bottom_frame = ttk.Frame(self.right_frame)
-        self.right_bottom_frame.grid(column=0, row=3, pady=(10, 0), sticky="nwes")
+        self.right_bottom_frame.grid(column=0, row=3, pady=(10, 0), sticky="news")
         # self.right_bottom_frame.columnconfigure(0, weight=0)
         self.right_bottom_frame.columnconfigure(1, weight=1)    
 
         self.sort_book_entry = ttk.Combobox(self.right_bottom_frame, values=("title", "author", "year"))
         self.sort_book_entry.grid(column=0, row=0,  sticky="ws")
         self.sort_book_button = ttk.Button(self.right_bottom_frame, text="⬆ Sort", bootstyle="info", cursor="hand2")
-        self.sort_book_button.grid(column=0, row=0, padx=(150, 0), sticky="ws")
+        self.sort_book_button.grid(column=0, row=0, padx=(200, 0), sticky="ws")
 
 
         self.clear_all_books_button = ttk.Button(self.right_bottom_frame, text="🧹 Clear all books", bootstyle="danger-outline", cursor="hand2")
