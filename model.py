@@ -191,6 +191,9 @@ def create_delete_library_execute(library_name, instruction):
     if library_name.strip() == "":
         return ["Please enter a proper library name", "danger"]
     
+    if library_name.lower() == "default_library":
+        return ["You cannot create or delete the default library.", "danger"]
+    
     if instruction == "create":
         #Check if the library already exists
         if os.path.exists(f"libraries/{library_name}.json"):

@@ -3,45 +3,40 @@ from tkinter import messagebox, filedialog
 import tkinter.font as tk_font
 import os
 
-os.environ['PATH'] += os.pathsep + r"C:\Program Files\Tesseract-OCR"
 try:
     import ttkbootstrap as tb
-    from ttkbootstrap import ttk
+    from tkinter import ttk
     from ttkbootstrap.constants import *
 except ImportError:
-    import ttkbootstrap as tb
-    from ttkbootstrap import ttk
     messagebox.showerror("Module Error", "The 'ttkbootstrap' module is not installed. Please install it using 'pip install ttkbootstrap'")
     exit()
 
 try:
-    import pyocr
-    import pyocr.builders
+    from PIL import Image, ImageTk
 except ImportError:
-    import pyocr
-    import pyocr.builders
-    messagebox.showerror("Module Error", "The 'pytesseract' module is not installed. Please install it using 'pip install pyocr'")
+    messagebox.showerror("Module Error", "The 'Pillow' module is not installed. Please install it using 'pip install Pillow'")
     exit()
 
 try:
-    from PIL import Image, ImageTk
+    import pyocr
+    import pyocr.builders
 except ImportError:
-    from PIL import Image, ImageTk
-    messagebox.showerror("Module Error", "The 'pillow' module is not installed. Please install it using 'pip install pillow'")
+    messagebox.showerror("Module Error", "The 'pyocr' module is not installed. Please install it using 'pip install pyocr'")
     exit()
-    
-try:
-    os.environ['PATH'] += os.pathsep + r"C:\Program Files\Tesseract-OCR"
-except Exception as e:
-    messagebox.showerror("Environment Error", f"Failed to set Tesseract-OCR path: {e}")
-    exit()
-# print(pytess.get_tesseract_version())
 
 class ViewClass:
     def __init__(self, root):
+        # Attempt to add the default Tesseract installation path to the environment
+        # This helps pyocr find Tesseract if it wasn't added to PATH during installation.
+        tesseract_path = r"C:\\Program Files\\Tesseract-OCR"
+        if tesseract_path not in os.environ['PATH']:
+            os.environ['PATH'] += os.pathsep + tesseract_path
+
         self.tools = pyocr.get_available_tools()
-        if len(self.tools) == 0:
-            raise Exception("No OCR tool found")
+        if not self.tools:
+            messagebox.showerror("OCR Engine Not Found", "Tesseract OCR was not found.\nPlease ensure it is installed and that its location is in your system's PATH.")
+            root.destroy()
+            return
         self.tool = self.tools[0]
 
 
@@ -322,9 +317,21 @@ class ViewClass:
 
     def create_new_window(self, instruction):
         new_window = Toplevel(self.root)
-        new_window.resizable(False, False)
-        new_window.geometry("300x200+530+280")
         new_window.title("Create a new library" if instruction == "Create a new library" else "Delete a library")
+        new_window.resizable(False, False)
+
+        # Center the new window over the main window
+        win_width = 380
+        win_height = 200
+
+        parent_x = self.root.winfo_x()
+        parent_y = self.root.winfo_y()
+        parent_width = self.root.winfo_width()
+        parent_height = self.root.winfo_height()
+
+        x = parent_x + (parent_width // 2) - (win_width // 2)
+        y = parent_y + (parent_height // 2) - (win_height // 2)
+        new_window.geometry(f"{win_width}x{win_height}+{x}+{y}")
 
         #Set the label text based on the action
         label_text = ("Enter the name of the library you want to create" 
