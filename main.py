@@ -1,5 +1,4 @@
-#team_Bakwowi
-#Bakwowi: junior.bakwowi@stud.th-deg.de
+# By Bakwowi Junior
 
 
 
