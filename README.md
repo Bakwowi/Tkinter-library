@@ -1,67 +1,118 @@
-# 📚 Tkinter Library
+# Tkinter Library Manager
 
-This project features a library management system with a graphical interface built using **Tkinter**, styled with **ttkbootstrap**, and includes functionality to extract text from images using **OCR (Optical Character Recognition)**.
+A desktop library management application built with Python and Tkinter. It uses `ttkbootstrap` for themed widgets, JSON files for local storage, and Tesseract OCR for searching from text inside an image.
 
----
+## Screenshots
 
-## 🖼 GUI with Tkinter & ttkbootstrap
 
-The user interface is created using the built-in Python GUI library **Tkinter**, enhanced with **ttkbootstrap** for a modern and theme-rich look.
+<!-- Replace these paths with screenshots committed to the repository. -->
+![Main library window](assets/main-window.png)
 
-### Why `ttkbootstrap`?
-- Provides modern themes and styling for default Tkinter widgets.
-- Offers a wide variety of built-in themes to choose from.
-- Enhances usability and visual appeal.
+![library dialogue](assets/library-dialogue.png)
 
-### 🔧 Installation
-To install `ttkbootstrap`, run:
+![files menu](assets/menu-file.png)
+
+![libraries menu](assets/menu-libraries.png)
+
+![themes menu](assets/menu-themes.png)
+
+![Search from image window](assets/ocr-search.png)
+
+
+## Features
+
+- Add books with a title, author, publication year, genre, and availability status.
+- Search books by title, author, year, or genre.
+- Search for a book by selecting text in an image with OCR.
+- Delete selected books or clear an entire library.
+- Sort books by title, author, year, or genre.
+- Create and delete additional JSON-backed libraries.
+- Switch between multiple `ttkbootstrap` themes.
+- Generate a large batch of sample book records with progress feedback.
+- Run model, controller, and system tests.
+
+## Requirements
+
+- Python 3.7 or newer
+- Tkinter, usually included with standard Python installations
+- Tesseract OCR for image search
+
+## Installation
+
+1. Clone the repository and open its directory:
+
+	```bash
+	git clone https://github.com/<your-username>/tkinter-library.git
+	cd tkinter-library
+	```
+
+2. Install the Python dependencies:
+
+	```bash
+	python -m pip install ttkbootstrap pillow pyocr
+	```
+
+3. Install Tesseract OCR by following the [official installation guide](https://tesseract-ocr.github.io/tessdoc/Installation.html).
+
+	On Windows, the application also checks `C:\\Program Files\\Tesseract-OCR`. If Tesseract is installed elsewhere, add its installation directory to your system `PATH` or update the path in `view.py`.
+
+## Usage
+
+Start the application from the project directory:
+
 ```bash
-pip install ttkbootstrap
+python main.py
 ```
 
-## 🖼️ Extracting Text from Images (OCR)
-To extract text from images, the project uses OCR via the pyocr Python library and Tesseract OCR engine.
+Library data is stored as JSON files in the `libraries/` directory. The application creates the default library file automatically when it is missing.
 
-### Required Tools:
-- pyocr: Python wrapper for OCR engines.
-- Pillow: For handling images.
-- Tesseract OCR: The OCR engine.
+To search from an image:
 
-## 🔧 Installation
-Install the Python dependencies:
+1. Select **Search from image** in the application.
+2. Choose an image file.
+3. Drag over the text you want to recognize.
+4. Run the search using the extracted text.
+
+## Running Tests
+
+Run the test suite with:
 
 ```bash
-pip install pyocr pillow
+python -m unittest discover -s tests -p "*_test.py"
 ```
 
-Then install Tesseract OCR by following the official instructions: 👉 https://tesseract-ocr.github.io/tessdoc/Installation.html
+## Project Structure
 
-
-## 🛠 Project Structure
-```bash
+```text
 tkinter-library/
+├── assets/
+├── libraries/
+│   └── Default_library.json       # Default local library data
+├── profiling/                     # Profiling scripts
 ├── tests/
-│   ├── model_unit_test.py              # Unit tests for the model
-│   ├── controller_integration_test.py  # Integration tests for the controller
-│   └── system_test.py                  # System-level testing
-├── main.py                             # Entry point for the application
-├── view.py                             # UI logic and rendering
-├── controller.py                       # Handles logic between view and model
-├── model.py                            # Business logic and data handling
-└── README.md                           # Project documentation              
+│   ├── model_unit_test.py         # Model unit tests
+│   ├── controller_integration_test.py
+│   └── system_test.py             # System-level tests
+├── controller.py                  # UI event handling and coordination
+├── main.py                        # Application entry point
+├── model.py                       # Library data and business logic
+├── view.py                        # Tkinter user interface
+└── README.md
 ```
 
-## ✅ Prerequisites
-- Python 3.7+
-- pip (Python package installer)
-- Internet access (for installing libraries and OCR engine)
+## Data Storage
 
-## 🙏 Authors & Acknowledgments
-### Project Author
-- Bakwowi Junior
+Each library is saved as a separate JSON file under `libraries/`. This keeps the project simple and portable, but it is intended for local use rather than concurrent or production-scale access.
 
-### Acknowledgments
-- Thanks to all contributors and libraries used in this project:
-- Python community
-- Open-source libraries: Tkinter, ttkbootstrap, Pillow, pyocr
-- Tesseract OCR developers
+## Author
+
+Bakwowi Junior
+
+## Acknowledgments
+
+- [Python](https://www.python.org/)
+- [Tkinter](https://docs.python.org/3/library/tkinter.html)
+- [ttkbootstrap](https://ttkbootstrap.readthedocs.io/)
+- [Pillow](https://python-pillow.org/)
+- [pyocr](https://github.com/jflesch/pyocr)
+- [Tesseract OCR](https://github.com/tesseract-ocr/tesseract)
